@@ -284,12 +284,18 @@ body {
   flex: 50%;
 }
 
+@font-face {
+  font-family: nos;
+  src: url(../fonts/thin.ttf);
+}
+
 main h1 {
     color: white;
     font-size: 200px;
     margin-top: 20%;
     margin-left: 25px;
-    font-weight: 100;
+    font-family: nos;
+    font-weight: 1000;
 }
 
 /* ANIMACION FLOTA H1 */
@@ -510,7 +516,7 @@ main h1 {
 
 .titulo_tienda1{
   color: white;
-  font-weight: 100;
+  font-weight: 1000;
 }
 
 .line-1{
@@ -525,6 +531,7 @@ main h1 {
   overflow: hidden;
   transform: translateY(-50%);    
   color: white;
+  font-family: nos;
 }
 
 /* ANIMACION ESCRIBIR */
@@ -580,3 +587,13 @@ button:hover {
   color: #000000;
   background-color: #fff;
 }
+
+/* REDES SOCIALES */
+
+.redes_sociales{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 250px;
+}
+

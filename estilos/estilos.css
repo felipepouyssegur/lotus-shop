@@ -11,7 +11,24 @@ html{
 
 
 
+/* IMAGEN LOGO */
+
+.top_imagen{
+  width: 60px;
+  height: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.center_image{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+
 /* BACKGROUND */
+
 body {
     margin: 0;
     height: 100vh;
@@ -257,28 +274,25 @@ body {
 }
 
 
-@font-face {
-  font-family: nos;
-  src: url(../fonts/SkemaProDisplay-Regular.ttf);
-}
-
 /* MAIN */
 
-body {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 100%;
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
 }
 
 main h1 {
     color: white;
-    font-family: nos;
-    font-size: 250px;
+    font-size: 200px;
     margin-top: 20%;
     margin-left: 25px;
-    font-family: 'Oswald', sans-serif;
+    font-weight: 100;
 }
 
+/* ANIMACION FLOTA H1 */
 
 .floating { 
   animation-name: floating;
@@ -485,3 +499,84 @@ main h1 {
  }
 }
 
+/* LADO DERECHO */
+
+.column_right{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 400px;
+}
+
+.titulo_tienda1{
+  color: white;
+  font-weight: 100;
+}
+
+.line-1{
+  position: relative;
+  top: 50%;  
+  width: 26em;
+  margin: 0 auto;
+  border-right: 2px solid rgba(255,255,255,.75);
+  font-size: 180%;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  transform: translateY(-50%);    
+  color: white;
+}
+
+/* ANIMACION ESCRIBIR */
+
+.anim-typewriter{
+animation: typewriter 4s steps(44) 1s 1 normal both,
+           blinkTextCursor 500ms steps(44) infinite normal;
+}
+@keyframes typewriter{
+from{width: 0;}
+to{width: 20.5em;}
+}
+@keyframes blinkTextCursor{
+from{border-right-color: rgba(255,255,255,.75);}
+to{border-right-color: transparent;}
+}
+
+.subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 2rem;
+  font-weight: 400;
+  opacity: 0;
+  transform: translateY(3rem);
+  animation: fadeInUp 2s ease forwards;
+  animation-delay: 5.5s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* BOTON */
+
+button {
+  transition: all .5s ease;
+  color: #fff;
+  border: 3px solid white;
+  font-family:'Montserrat', sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1;
+  font-size: 17px;
+  background-color : transparent;
+  padding: 10px;
+  outline: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button:hover {
+  color: #000000;
+  background-color: #fff;
+}

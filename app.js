@@ -46,9 +46,9 @@ console.log(resultado); */
 
 alert("Hola" + " " + nombre) */
 
-let añoNacido = prompt("¿En que año naciste?");
-const añoActual = prompt("¿En que año estamos?");
+/* let añoNacido = Number(prompt("¿En que año naciste?"));
+let añoActual = Number(prompt("¿En que año estamos?"));
 
-let resultado = parseInt(añoActual) - parseInt(añoNacido);
+let resultado = (añoActual) - (añoNacido);
 
-alert(resultado);
+alert("Usted tiene " + resultado + " años."); */

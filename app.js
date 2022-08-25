@@ -25,7 +25,9 @@ if (preguntaInicial === "si") {
         if (segundaPregunta === "2") {
             let tercerPregunta = prompt("¿Tiene algun codigo de descuento? De ser asi ingreselo.")
             if (tercerPregunta === "AHFX2") {
-                console.log(aplicarDescuento(precioKimono))
+                console.log(aplicarDescuento(precioKimono));
+            } else {
+                alert("Tu codigo es invalido.")
             }
         }
     } else {

@@ -1,54 +1,36 @@
+let precioKimono = 20000;
 
-/* let nombreAlumno = "Juan Pablo"; 
-console.log(nombreAlumno)
-let edad = 32; 
-console.log(edad)
-let estudiante = true; 
-console.log(estudiante)
+// CODIGO PROMOCIONAL: AHFX2
 
-const apellido = "Rodriguez"
-console.log(apellido)
+function aplicarCuotas (precioKimono) {
+    let resultado = precioKimono / 12;
+    return alert(`Su cuota por mes es de $${resultado}`);
+}
 
- */
+function aplicarDescuento (precioKimono) {
+    let precioCuotaPorMes = precioKimono / 12;
+    let descuentoCuotaPorMes = precioCuotaPorMes * 0.20;
+    let resultadoFinal = precioCuotaPorMes - descuentoCuotaPorMes;
+    return alert(`¡DESCUENTO APLICADO EXITOSAMENTE! Su cuota por mes con descuento quedaria en ${resultadoFinal}. ¡Gracias por tu compra!`)
+}
 
+let preguntaInicial = prompt("¿Desea comprar un kimono? (Responda con SI o NO)").toLowerCase();;
 
-//Diferencias entre LET y CONST
-
-// pueden inicializarse vacias
-// pueden ser redeclaradas
-/* let nombre;
-nombre = "Coder"
-nombre = "House"
-nombre = 37
-console.log(nombre) */
-
-
-// deben ser declaradas con valor, NO pueden inicializarse vacias
-// NO pueden ser redeclaradas
-
-/* const NOMBRE= "Coder"; */
-
-/* let nombre = "Juan Pablo";
-let apellido = "Rodriguez";
-
-let nombreCompleto = nombre + "" + apellido;
-
-console.log(nombreCompleto); */
-
-/* let numero1 = 25;
-let numero2 = 35;
-
-let resultado = numero1 / numero2;
-
-console.log(resultado); */
-
-/* let nombre = prompt("Ingrese su nombre.")
-
-alert("Hola" + " " + nombre) */
-
-/* let añoNacido = Number(prompt("¿En que año naciste?"));
-let añoActual = Number(prompt("¿En que año estamos?"));
-
-let resultado = (añoActual) - (añoNacido);
-
-alert("Usted tiene " + resultado + " años."); */
+if (preguntaInicial === "si") {
+    let segundaPregunta = prompt("Perfecto, ahora indique '1' si quiere un solo pago, o indique '2' si quiere 12 cuotas.");
+    if (segundaPregunta === "1") {
+        alert("Perfecto, su compra fue realizada con exito en un solo pago.")
+    } else if (segundaPregunta === "2") {
+        console.log(aplicarCuotas(precioKimono));
+        if (segundaPregunta === "2") {
+            let tercerPregunta = prompt("¿Tiene algun codigo de descuento? De ser asi ingreselo.")
+            if (tercerPregunta === "AHFX2") {
+                console.log(aplicarDescuento(precioKimono))
+            }
+        }
+    } else {
+        console.log("No entendi tu respuesta :(")
+    }
+} else if (preguntaInicial === "no" || preguntaInicial === "") {
+    alert("No hay problema, te esperamos en otro momento :)")
+}

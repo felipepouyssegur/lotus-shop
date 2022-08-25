@@ -9,7 +9,9 @@ html{
     scroll-behavior: smooth;  
 }
 
-
+a{
+  text-decoration-color: rgb(95, 0, 95);
+}
 
 /* IMAGEN LOGO */
 
@@ -37,11 +39,12 @@ body {
     -webkit-overflow-Y: hidden;
     -moz-overflow-Y: hidden;
     -o-overflow-Y: hidden;
-    overflow-y: hidden;
+    overflow-y: scroll;
     -webkit-animation: fadeIn 1 1s ease-out;
     -moz-animation: fadeIn 1 1s ease-out;
     -o-animation: fadeIn 1 1s ease-out;
     animation: fadeIn 1 1s ease-out;
+    
 }
 
 .light {
@@ -596,7 +599,22 @@ button:hover {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin-top: 250px;
+  margin-top: 180px;
+}
+
+.redes_sociales img{
+  width: 50px;
+  height: 50px;
+}
+
+.redes_sociales :hover{
+  transform: scale(1.1);
+  transition: all .5s ease-in-out;
+}
+
+/* CORRECCION BODY INDEX*/
+.body_index{
+  overflow-y: hidden;
 }
 
 
@@ -606,4 +624,65 @@ button:hover {
   .subtitulo{
     margin-left: 200px;
   }
+}
+
+@media screen and (max-width: 1200px) {
+  .light{
+    box-shadow: #e9f1f1 0px 0px 10px 2px;
+  }
+  main h1{
+      font-size: 170px;
+  }
+  .lotus_shop{
+    margin-top: 50px;
+  }
+  .column_right{
+    margin-top: 285px;
+  }
+}
+
+@media screen and (max-height: 840px) {
+  .redes_sociales{
+    margin-top: 130px;
+    }
+}
+
+
+/* PAGINA TIENDA */
+
+.glasses{
+  margin-top: 30px;
+}
+
+.glasses .glasses_box {
+  text-align: center;
+  border: #555556 solid 1px;
+  border-radius: 2px;
+  padding: 0px 0px 30px 0px;
+  margin-bottom: 50px;
+}
+
+.glasses .glasses_box figure {
+  margin: 0;
+  margin-top: 30px;
+}
+
+.glasses .glasses_box h3 {
+  color: #ffffff;
+  font-size: 22px;
+  line-height: 20px;
+  padding: 70px 0px 9px 0px;
+}
+
+.glasses .glasses_box p {
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+}
+
+.glasses img{
+  width: 200px;
+  height: 200px;
+  margin-top: 30px;
 }

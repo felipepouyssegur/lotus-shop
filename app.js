@@ -1,3 +1,5 @@
+//DESAFIO 1
+
 /* let precioKimono = 20000;
 
 // CODIGO PROMOCIONAL: AHFX2
@@ -41,6 +43,9 @@ if (preguntaInicial === "si") {
 
 
 
+
+
+
 const itemsDisponibles = [{  
     nombre: "Guantes de Boxeo",
     id:1,
@@ -59,7 +64,7 @@ const itemsDisponibles = [{
     nombre: "Termina Jiu Jitsu",
     id:3,
     deporte: "grapplig",
-    colores: "blanco/negro/azul/amarillo",
+    colores: "blanco/negro/azul/amarillo", 
     precio: 10000,
 },
 {
@@ -79,43 +84,58 @@ const itemsDisponibles = [{
 {
     nombre: "Protector Bucal",
     id:6,
-    deporte: "stricking/grappling",
-    colores: "negro, blanco, azul, violeta",
+    deporte: "striking/grappling",
+    colores: "negro, blanco, azul, violeta",    
     precio: 4000,
 }
-]
+] 
 
+let total = 0;
 
-prompt("¡HOLA! Buenos dias. Bienvenido a LOTUS SHOP, la tienda n1 de deportes de contacto en Argentina. A continuacion te mostramos todos nuestros productos. (PRESIONE ENTER)")
+itemsDisponibles.forEach((producto)=>(total += producto)) 
+
+function saludo () {
+alert("¡HOLA! Buenos dias/tardes. Bienvenido a LOTUS SHOP, la tienda n1 de deportes de contacto en Argentina. A continuacion te mostramos todos nuestros productos.")}
+
+saludo()
+
 for(let i = 0; i < itemsDisponibles.length; i++){
     alert(itemsDisponibles[i].nombre + ( ` - precio $${itemsDisponibles[i].precio}`));
  }
- 
+
+
 
 let array = [];
+let arrayprecio = [];
 for(var i = 0; i <= 3; i++)
    if (i === 1) {
     let item1 = Number(prompt("Elegi algunos de estos productos \n 1- Guantes de Boxeo \n 2- Kimono de JiuJitsu \n 3- Termica JiuJitsu \n 4- Bolsa de Boxeo \n 5- Guantes de MMA \n 6- Protector Bucal"));
     if (item1 === 1) {
         alert(`Elegiste Guantes de Boxeo.`)
         array.push("Guantes de boxeo ")
+        arrayprecio.push(8000)
     }
     else if (item1 === 2) {
         alert("Elegiste Kimono de JiuJitsu.")
         array.push("Kimono de JiuJitsu ")
+        arrayprecio.push(20000)
     }
     else if (item1 === 3) {
         alert("Elegiste Termica JiuJitsu.")
         array.push("Termica JiuJitsu ")
+        arrayprecio.push(10000)
     } else if (item1 === 4 ) {
         alert("Elegiste Bolsa de Boxeo.")
         array.push("Bolsa de Boxeo ")
+        arrayprecio.push(12000)
     } else if (item1 === 5 ) {
         alert("Elegiste Guantes de MMA.")
         array.push("Guantes de MMA ")
+        arrayprecio.push(7000)
     } else if (item1 === 6 ) {
         alert("Elegiste Protector Bucal.")
         array.push("Protector bucal ")
+        arrayprecio.push(4000)
     }
    }
    else if (i === 2){
@@ -123,23 +143,29 @@ for(var i = 0; i <= 3; i++)
     if (item2 === 1) {
         alert(`Elegiste Guantes de Boxeo.`)
         array.push("Guantes de boxeo ")
+        arrayprecio.push(8000)
     }
     else if (item2 === 2) {
         alert("Elegiste Kimono de JiuJitsu.")
         array.push("Kimono de JiuJitsu ")
+        arrayprecio.push(20000)
     }
     else if (item2 === 3) {
         alert("Elegiste Termica JiuJitsu.")
         array.push("Termica JiuJitsu ")
+        arrayprecio.push(10000)
     } else if (item2 === 4 ) {
         alert("Elegiste Bolsa de Boxeo.")
         array.push("Bolsa de Boxeo ")
+        arrayprecio.push(12000)
     } else if (item2 === 5 ) {
         alert("Elegiste Guantes de MMA.")
         array.push("Guantes de MMA ")
+        arrayprecio.push(7000)
     } else if (item2 === 6 ) {
         alert("Elegiste Protector Bucal.")
         array.push("Protector bucal ")
+        arrayprecio.push(4000)
     }
 
    }
@@ -148,27 +174,58 @@ for(var i = 0; i <= 3; i++)
     if (item3 === 1) {
         alert(`Elegiste Guantes de Boxeo.`)
         array.push("Guantes de boxeo")
+        arrayprecio.push(8000)
     }
     else if (item3 === 2) {
         alert("Elegiste Kimono de JiuJitsu.")
         array.push("Kimono de JiuJitsu")
+        arrayprecio.push(20000)
     }
     else if (item3 === 3) {
         alert("Elegiste Termica JiuJitsu.")
         array.push("Termica JiuJitsu")
+        arrayprecio.push(10000)
     } else if (item3 === 4 ) {
         alert("Elegiste Bolsa de Boxeo.")
         array.push("Bolsa de Boxeo")
+        arrayprecio.push(12000)
     } else if (item3 === 5 ) {
         alert("Elegiste Guantes de MMA.")
         array.push("Guantes de MMA")
+        arrayprecio.push(7000)
     } else if (item3 === 6 ) {
         alert("Elegiste Protector Bucal.")
         array.push("Protector bucal")
+        arrayprecio.push(4000)
     }
     alert(`¡Felicitaciones! Tu compra ha finalizado, te recordamos que compraste ${array}.`)
+
+
+    let sum = 0;
+    for (let i = 0; i < arrayprecio.length; i++) {
+    sum += arrayprecio[i];
+}
+
+    alert(`El total de tu compra es $${sum}`)
    }
- 
+   
+alert("En LOTUS SHOP estamos trabajando para facilitar tus compras, te pedimos por favor que abras la consola con la TECLA F12");
+let segundaPregunta = Number(prompt("Perfecto, ahora te vamos a pedir que escribas 1 si queres ver todos los articulos de GRAPPLING, y 2 si queres ver los articulos de STRIKING"));
+
+if (segundaPregunta === 1) {
+    const resultado = itemsDisponibles.filter((el) => el.deporte.includes("striking"));
+    console.log(resultado)
+} else if (segundaPregunta === 2) {
+    const resultado = itemsDisponibles.filter((el) => el.deporte.includes("grappling"));
+    console.log(resultado)
+} else {
+    console.log("No entendi tu respuesta.")
+}
+  
+   
+
+
+
 
 
 

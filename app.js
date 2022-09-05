@@ -44,9 +44,9 @@ if (preguntaInicial === "si") {
 
 
 
+/* MI STOCK (ARRAY CON OBJETOS) */
 
-
-const itemsDisponibles = [{  
+const itemsDisponibles = [{   
     nombre: "Guantes de Boxeo",
     id:1,
     deporte: "striking",
@@ -90,20 +90,20 @@ const itemsDisponibles = [{
 }
 ] 
 
-let total = 0;
-
-itemsDisponibles.forEach((producto)=>(total += producto)) 
+/* FUNCION SALUDAR */
 
 function saludo () {
 alert("¡HOLA! Buenos dias/tardes. Bienvenido a LOTUS SHOP, la tienda n1 de deportes de contacto en Argentina. A continuacion te mostramos todos nuestros productos.")}
-
 saludo()
+
+/* MUESTRO TODO EL CATALOGO CON SU PRECIO */
 
 for(let i = 0; i < itemsDisponibles.length; i++){
     alert(itemsDisponibles[i].nombre + ( ` - precio $${itemsDisponibles[i].precio}`));
  }
 
 
+/* SELECCION DE PRODUCTOS */
 
 let array = [];
 let arrayprecio = [];
@@ -138,6 +138,7 @@ for(var i = 0; i <= 3; i++)
         arrayprecio.push(4000)
     }
    }
+   /* SELECCION DE PRODCUTOS (PREGUNTA 2) */
    else if (i === 2){
     let item2 = Number(prompt("Perfecto, te faltan elegir dos productos: \n 1- Guantes de Boxeo \n 2- Kimono de JiuJitsu \n 3- Termica JiuJitsu \n 4- Bolsa de Boxeo \n 5- Guantes de MMA \n 6- Protector Bucal"))
     if (item2 === 1) {
@@ -169,6 +170,7 @@ for(var i = 0; i <= 3; i++)
     }
 
    }
+   /* SELECCION DE PRODCUTOS (PREGUNTA 3) */
     else if (i === 3) {
     let item3 = Number(prompt("¿Que es lo ultimo que vas a comprar? \n 1- Guantes de Boxeo \n 2- Kimono de JiuJitsu \n 3- Termica JiuJitsu \n 4- Bolsa de Boxeo \n 5- Guantes de MMA \n 6- Protector Bucal"));
     if (item3 === 1) {
@@ -198,17 +200,19 @@ for(var i = 0; i <= 3; i++)
         array.push("Protector bucal")
         arrayprecio.push(4000)
     }
-    alert(`¡Felicitaciones! Tu compra ha finalizado, te recordamos que compraste ${array}.`)
+    alert(`¡Felicitaciones! Tu compra ha finalizado, te recordamos que compraste ${array}.`) /* MUESTRO "CARRITO" */
 
-
+    /* SUMO TOTAL DE LA COMPRA */
     let sum = 0;
-    for (let i = 0; i < arrayprecio.length; i++) {
+    for (let i = 0; i < arrayprecio.length; i++) {                    
     sum += arrayprecio[i];
 }
 
     alert(`El total de tu compra es $${sum}`)
    }
    
+
+/* "FILTRO DE BUSQUEDA" */   
 alert("En LOTUS SHOP estamos trabajando para facilitar tus compras, te pedimos por favor que abras la consola con la TECLA F12");
 let segundaPregunta = Number(prompt("Perfecto, ahora te vamos a pedir que escribas 1 si queres ver todos los articulos de GRAPPLING, y 2 si queres ver los articulos de STRIKING"));
 

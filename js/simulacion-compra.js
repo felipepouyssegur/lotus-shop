@@ -75,7 +75,7 @@ span2.onclick = function() {
 
 
 
-//INTENTO ANIMACION
+//ANIMACION - CONFIRMACION
 
 const btn3 = document.querySelector("#myBtn3")
 
@@ -108,4 +108,11 @@ setTimeout(function() {
 
 }
 
-  
+
+
+
+
+
+
+
+

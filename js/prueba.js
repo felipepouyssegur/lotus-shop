@@ -57,6 +57,7 @@ let productos = [
 },
 ];
 
+
 //PRUEBA AGREGAR MI STOCK A LOCALSTORAGE CON FOREACH....
 
 
@@ -134,11 +135,13 @@ const dibujarCarrito = () => {
         <button class = "btn btn-dark finalizar" id="finalizar" onClick = "finalizarCompra()"> FINALIZAR COMPRA </button>`
         modalCarrito.appendChild(totalContainer)
 
-        localStorage.setItem("productos", JSON.stringify([cart])) 
+        localStorage.setItem("productos", JSON.stringify(cart)) 
     } else {
         modalCarrito.classList.remove("cart")
     }         
 }
+
+
 
 
 const removeProduct = (indice) => {
@@ -149,13 +152,15 @@ const removeProduct = (indice) => {
 
 function finalizarCompra () {
     const mistock = JSON.parse(localStorage.getItem("productos"))
-    const mistockStr = JSON.stringify(mistock)
-
     const compraTerminada = document.createElement("p")
-    compraTerminada.innerText = `Su compra fue realizada con exito, le dejamos el detalle de sus productos. ${mistockStr}`
+
+
+    compraTerminada.innerText = `Usted selecciono: ${mistock.nombre}`
 
     modalCarrito.appendChild(compraTerminada)
 }
+
+
 
 
 

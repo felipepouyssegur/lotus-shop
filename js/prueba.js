@@ -151,16 +151,23 @@ const removeProduct = (indice) => {
 }
 
 function finalizarCompra () {
-    const mistock = JSON.parse(localStorage.getItem("productos"))
-    const compraTerminada = document.createElement("p")
+    const miStock = JSON.parse(localStorage.getItem("productos"))
+    const nombreDeProductos = miStock.map(producto => producto.nombre)
+    let p = document.createElement("p")
+    p.innerText = `Usted selecciono los siguientes productos: ${nombreDeProductos}`
+
+    modalCarrito.appendChild(p)
+   
+} 
+ 
 
 
-    compraTerminada.innerText = `Usted selecciono: ${mistock.nombre}`
 
-    modalCarrito.appendChild(compraTerminada)
+/* console.log(stock) */
+
+
+function obtenerNombreDeProductos(){
+    const miStock = JSON.parse(localStorage.getItem("productos"))
+    const nombreDeProductos = miStock.map(producto => producto.nombre)
+    return nombreDeProductos
 }
-
-
-
-
-

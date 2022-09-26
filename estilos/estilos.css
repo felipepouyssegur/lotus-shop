@@ -28,7 +28,7 @@ a{
 .center_image{
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: -50px;
 }
 
 
@@ -693,30 +693,15 @@ button:hover {
 
 /* CARRITO */
 
-.carrito{
-  width: 100%;
-  height: 300px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around
-}
 
-.boton-carrito{
-  height: 60px;
-}
 
-.foto_carrito{
-  width: 50px;
-  height: 50px;
-}
 
-.center_carrito{
-  display: flex;
-  justify-content:flex-end;
-  margin-right: 40px;
-  margin-top: -40px;
-}
 
+
+.offcanvas {
+  background: rgb(255,255,255);
+  background: linear-gradient(0deg, rgba(255,255,255,0.7231267507002801) 0%, rgba(79,79,79,1) 0%, rgba(0,0,0,1) 100%);
+}
 
 
 /* SIMULACION COMPRA */
@@ -736,31 +721,43 @@ label {
   margin-top: 15px;
 }
 
+/* LOGO CARRITO */
+
+.boton-carrito {
+  width: 50px;
+  height: 50px;
+  margin-left: 15px;
+  display: block;
+}
+
+.foto_carrito {
+  width: 36px;
+  height: 36px;
+  margin-left: -8px;
+}
+
 /* CARRITO */
 
 .cart {
-  width: 80%;
   margin: auto;
-  padding: 20px;
-  background-color: rgb(26, 26, 26); 
-  background-color: rgba(54, 54, 54, 0.4); 
-  margin-bottom: 100px;
 }
 
+
 .car-img {
-  width: 80px;
-  height: 80px;
-  margin: 10px;
+  width: 120px;
+  height: 120px;
 }
 
 .producto-carrito {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
   align-items: center;
   color: white;
 }
 
 .product-details {
+  display: flex;
+  flex-direction: column;
   font-weight: bold;
 }
 
@@ -784,6 +781,9 @@ label {
   font-weight: 600;
 }
 
+#remove-product {
+  margin-bottom: 50px;
+}
 
 
 

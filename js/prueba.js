@@ -105,10 +105,6 @@ const agregarAlCarrito = (indice) => {
     Toastify({
         text: `Producto agregado al carrito.`,
         duration: 1500,
-        offset: {
-            x: 100, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
-            y: 10 // vertical axis - can be a number or a string indicating unity. eg: '2em'
-          },
         style: {
             background: "linear-gradient(90deg, rgba(255,255,255,0.7231267507002801) 0%, rgba(79,79,79,1) 0%, rgba(0,0,0,1) 100%)",
           },
@@ -172,6 +168,6 @@ function finalizarCompra () {
 } 
  
 
-//VERIFICACION MAYOR DE EDAD
+
 
 

@@ -26,16 +26,32 @@
     <div class='light x9'></div>
 
     <main>
+
+      <button class="btn btn-primary btn-dark boton-carrito" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><img src="../multimedia/shopping-cart.png" alt="" class="foto_carrito"></button>
+
+
         <div class="center_image" data-aos="fade-down" data-aos-duration="1000">  
         <a href="../index.html"><img src="../multimedia/lotuswhite.png" alt="foto_logo" class="top_imagen"></a> <!-- LOGO LOTUS -->
         </div>
 
-        <div class="center_carrito">
-        <img src="../multimedia/shopping-cart.png" alt="" class="foto_carrito">
-        <h2 class="contador"></h2>
-        </div>
 
         
+        
+       
+        
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+          <div class="offcanvas-header">
+            <h5 id="offcanvasRightLabel">Tu carrito.</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <div id="cart"></div>
+            <a name="cart"></a>
+          </div>
+        </div>
+
+
    <div class="glasses">
       <div class="container-fluid">
          <div class="row" id="container"></div>
@@ -43,8 +59,7 @@
    </div> 
          
 
-   <div id="cart"></div>
-   <a name="cart"></a>
+   
 
    
 

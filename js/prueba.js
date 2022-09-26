@@ -1,3 +1,5 @@
+// MIS PRODUCTOS (Array de objetos)
+
 let productos = [
 {
     id: 1,
@@ -58,13 +60,7 @@ let productos = [
 ];
 
 
-//PRUEBA AGREGAR MI STOCK A LOCALSTORAGE CON FOREACH....
-
-
-/* localStorage.setItem("productos", JSON.stringify([productos])) 
-const mistock = JSON.parse(localStorage.getItem("productos"))
-
-console.log(mistock) */
+//CREO CARDS DE TIENDA.HTML
 
 
 const crearCards = () => {
@@ -76,7 +72,7 @@ const crearCards = () => {
         <figure><img src="${producto.imagen}" alt="esta es una foto de ${producto.nombre}"/></figure>
         <h3><span class="blu">$</span>${producto.precio}</h3>
         <p>${producto.nombre}</p>
-        <button type="button" class="btn btn-outline-secondary boton-comprar" onClick = "agregarAlCarrito (${indice})">COMPRAR</button>
+        <button type="button" class="btn btn-outline-secondary boton-comprar" id="asd" onClick = "agregarAlCarrito (${indice})">COMPRAR</button>
      </div>`
 
         contenedor.appendChild(card)
@@ -84,6 +80,9 @@ const crearCards = () => {
 }
 
 crearCards();
+
+
+//CREO CARRITO 
 
 let cart = [];
 let modalCarrito = document.getElementById("cart")
@@ -102,6 +101,18 @@ const agregarAlCarrito = (indice) => {
         cart[indiceEncontradoCarrito].cantidad += 1
         dibujarCarrito()
     }
+
+    Toastify({
+        text: `Producto agregado al carrito.`,
+        duration: 1500,
+        offset: {
+            x: 100, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+            y: 10 // vertical axis - can be a number or a string indicating unity. eg: '2em'
+          },
+        style: {
+            background: "linear-gradient(90deg, rgba(255,255,255,0.7231267507002801) 0%, rgba(79,79,79,1) 0%, rgba(0,0,0,1) 100%)",
+          },
+        }).showToast();
 };
 
 
@@ -161,13 +172,6 @@ function finalizarCompra () {
 } 
  
 
+//VERIFICACION MAYOR DE EDAD
 
 
-/* console.log(stock) */
-
-
-function obtenerNombreDeProductos(){
-    const miStock = JSON.parse(localStorage.getItem("productos"))
-    const nombreDeProductos = miStock.map(producto => producto.nombre)
-    return nombreDeProductos
-}

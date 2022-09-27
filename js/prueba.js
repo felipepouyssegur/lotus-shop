@@ -86,6 +86,7 @@ crearCards();
 
 let cart = [];
 let modalCarrito = document.getElementById("cart")
+let contadorCarrito = 0;
 
 
 const agregarAlCarrito = (indice) => {
@@ -102,6 +103,8 @@ const agregarAlCarrito = (indice) => {
         dibujarCarrito()
     }
 
+    contadorCarrito++ // operador avanzado
+
     Toastify({
         text: `Producto agregado al carrito.`,
         duration: 1500,
@@ -112,14 +115,13 @@ const agregarAlCarrito = (indice) => {
 };
 
 
-let total = 0;
+
 
 const dibujarCarrito = () => {
     modalCarrito.className = "cart";
     modalCarrito.innerHTML = ""     
     if(cart.length > 0) {
         cart.forEach((producto, indice) => {
-            total = total + producto.precio * producto.cantidad;
             const carritoContainer = document.createElement("div");
             carritoContainer.className = "producto-carrito"
             carritoContainer.innerHTML = `
@@ -135,14 +137,22 @@ const dibujarCarrito = () => {
             <button class="btn btn-dark" id="remove-product" onClick="removeProduct(${indice})">Eliminar producto</button>
             `;
             modalCarrito.appendChild(carritoContainer);
+
+            console.log(producto.cantidad)
         })
+        
+        let initialTotal = 0;
+        const grandTotal = cart.reduce((previousValue, currentItem) => previousValue + (currentItem.precio * currentItem.cantidad),
+        initialTotal);
+
         const totalContainer = document.createElement("div")
         totalContainer.className = "total-carrito";
-        totalContainer.innerHTML = `<div class = "total"> TOTAL $ ${total} </div>
+        totalContainer.innerHTML = `<div class = "total"> TOTAL $ ${grandTotal} </div>
         <button class = "btn btn-dark finalizar" id="finalizar" onClick = "finalizarCompra()"> FINALIZAR COMPRA </button>`
         modalCarrito.appendChild(totalContainer)
 
         localStorage.setItem("productos", JSON.stringify(cart)) 
+        
     } else {
         modalCarrito.classList.remove("cart")
     }         
@@ -155,18 +165,64 @@ const removeProduct = (indice) => {
     cart.splice(indice, 1);
     dibujarCarrito();
 
+    contadorCarrito--
 }
 
-function finalizarCompra () {
-    const miStock = JSON.parse(localStorage.getItem("productos"))
-    const nombreDeProductos = miStock.map(producto => producto.nombre)
-    let p = document.createElement("p")
-    p.innerText = `Usted selecciono los siguientes productos: ${nombreDeProductos}`
 
-    modalCarrito.appendChild(p)
-   
-} 
+
+
+
+
+
+
+const modal = document.getElementById("myModal");
+
+
+const span = document.getElementsByClassName("close")[0];
+
+
+function finalizarCompra () {
+modal.style.display = "block";
+
+
+const btn2 = document.querySelector("#myBtn2")
+
+btn2.onclick = function () {
+modal.style.display = "none"
+let edadUsuario = document.querySelector(".edadUsuario").value
+edadUsuario >= 18 ?      
+
+Toastify({
+    text: `Felicitaciones, su compra fue realizada con exito`,
+    duration: 2500,
+    style: {
+        background: "linear-gradient(86deg, rgba(255,255,255,0.7231267507002801) 0%, rgba(0,255,11,1) 0%, rgba(198,255,209,1) 0%, rgba(51,249,0,1) 100%)",
+      },
+    }).showToast()  
+    
+    
+    :Toastify({
+        text: `¡ATENCION! Debes ser mayor de edad para realizar la compra.`,
+        duration: 2500,
+        style: {
+            background: "linear-gradient(86deg, rgba(255,255,255,0.7231267507002801) 0%, rgba(0,255,11,1) 0%, rgba(255,0,0,1) 0%, rgba(255,140,140,1) 100%)",
+          },
+        }).showToast();
+} }
  
+// SI EL USUARIO TOCA LA X SE CIERRA
+span.onclick = function() {
+    modal.style.display = "none";
+  }
+  
+//SI EL USUSARIO TOCA AFUERA SE CIERRA
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+
 
 
 

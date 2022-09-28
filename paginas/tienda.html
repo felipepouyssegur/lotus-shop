@@ -14,7 +14,7 @@
     
 </head>
 <body class="tienda-body">
-    
+    <!-- ANIMACIONES BACKGROUND -->
     <div class='light x1'></div>
     <div class='light x2'></div>
     <div class='light x3'></div>
@@ -27,33 +27,31 @@
 
     <main>
 
+      <!-- ICONO Y BOTON CARRITO  -->
       <button class="btn btn-primary btn-dark boton-carrito" type="button" data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
         <img src="../multimedia/shopping-cart.png" alt="" class="foto_carrito" />
       </button>
 
+      <!-- LOGO LOTUS -->
+      <div class="center_image" data-aos="fade-down" data-aos-duration="1000">  
+      <a href="../index.html"><img src="../multimedia/lotuswhite.png" alt="foto_logo" class="top_imagen"></a> 
+      </div>
 
-
-        <div class="center_image" data-aos="fade-down" data-aos-duration="1000">  
-        <a href="../index.html"><img src="../multimedia/lotuswhite.png" alt="foto_logo" class="top_imagen"></a> <!-- LOGO LOTUS -->
+      <!-- CANVAS -->
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+          <h5 id="offcanvasRightLabel">Tu carrito.</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-
-
-        
-        
-
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-          <div class="offcanvas-header">
-            <h5 id="offcanvasRightLabel">Tu carrito.</h5>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <div id="cart"></div>
-            <a name="cart"></a>
-          </div>
+        <div class="offcanvas-body">
+          <!-- CARRITO -->
+          <div id="cart"></div>
+          <a name="cart"></a>
         </div>
+      </div>
 
-
+    <!-- DIBUJO PRODUCTOS -->
    <div class="glasses">
       <div class="container-fluid">
          <div class="row" id="container"></div>
@@ -61,7 +59,7 @@
    </div> 
          
 
-   
+   <!-- MODAL FINALIZAR COMPRA -->
    <div id="myModal" class="modal">
     <div class="modal-content">
 

@@ -67,11 +67,11 @@ const crearCards = () => {
     let contenedor = document.getElementById("container")
     productos.forEach((producto, indice) => {
         let card = document.createElement("div")
-        card.classList.add("col-xl-3", "col-lg-3", "col-md-6", "col-sm-6")
+        card.classList.add("col-xl-3", "col-lg-3", "col-md-6", "col-sm-6", "hide",`${producto.deporte}`, "hide", "products")
         card.innerHTML = `<div class="glasses_box">
         <figure><img src="${producto.imagen}" alt="esta es una foto de ${producto.nombre}"/></figure>
         <h3><span class="blu">$</span>${producto.precio}</h3>
-        <p>${producto.nombre}</p>
+        <p class="product-name">${producto.nombre}</p>
         <button type="button" class="btn btn-outline-secondary boton-comprar" id="asd" onClick = "agregarAlCarrito (${indice})">COMPRAR</button>
      </div>`
 
@@ -126,7 +126,7 @@ const dibujarCarrito = () => {
             carritoContainer.className = "producto-carrito"
             carritoContainer.innerHTML = `
             <img class = "car-img" src="${producto.imagen}"/>
-            <div class="product-details">
+            <div class="product-details>
                 ${producto.nombre}
             </div>
             <div class="product-details"> Cantidad: ${producto.cantidad}</div>
@@ -158,9 +158,6 @@ const dibujarCarrito = () => {
     }         
 }
 
-
-
-
 const removeProduct = (indice) => {
     cart.splice(indice, 1);
     dibujarCarrito();
@@ -172,7 +169,7 @@ const removeProduct = (indice) => {
 
 
 
-
+//DESAFIO
 
 
 const modal = document.getElementById("myModal");
@@ -210,6 +207,7 @@ Toastify({
         }).showToast();
 } }
  
+
 // SI EL USUARIO TOCA LA X SE CIERRA
 span.onclick = function() {
     modal.style.display = "none";
@@ -221,9 +219,68 @@ span.onclick = function() {
       modal.style.display = "none";
     }
   }
+  
+  
+
+//FILTROS
+
+  //PARAMETROS QUE ENVIA EL BOTON 
+  function filterProduct(value) {
+    //Traigo clases del boton
+    let buttons = document.querySelectorAll(".button-value");
+    buttons.forEach((button) => {
+      //checkeo si  el valor es igual al InnerText
+      if (value.toUpperCase() == button.innerText.toUpperCase()) {
+        button.classList.add("active");
+      } else {
+        button.classList.remove("active");
+      }
+    });
+    //Selecciono todas las cards
+    let elements = document.querySelectorAll(".products");
+    //Loopeo y recorro las cards
+    elements.forEach((element) => {
+      //Si el boton "ALL esta clickeado, elimino la clase HIDE"
+      if (value == "all") {
+        element.classList.remove("hide");
+      } else {
+        //Checkeo si contiene la clase striking/grappling
+        if (element.classList.contains(value)) {
+          //Muestro elemento en base a su categoria
+          element.classList.remove("hide");
+        } else {
+          //Escondo a los otros elementos
+          element.classList.add("hide");
+        }
+      }
+    });
+  }
 
 
 
 
+  //Cuando hago click en buscar...
+  document.getElementById("search").addEventListener("click", () => {
+    //Traigo elementos del html
+    let searchInput = document.getElementById("search-input").value;
+    let elements = document.querySelectorAll(".product-name");
+    let cards = document.querySelectorAll(".products");
+    //Loopeo sobre los elementos
+    elements.forEach((element, index) => {
+      //Checkeo si el texto incluye el valor ingresado en la busqueda.
+      if (element.innerText.includes(searchInput.toUpperCase())) {
+        //Muestro card que lo contenga
+        cards[index].classList.remove("hide");
+      } else {
+        //Escondo cards que no lo contengan
+        cards[index].classList.add("hide");
+      }
+    });
+  });
+
+
+  window.onload = () => {
+    filterProduct("all");
+  };
 
 

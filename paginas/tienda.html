@@ -27,6 +27,8 @@
 
     <main>
 
+
+      
       <!-- ICONO Y BOTON CARRITO  -->
       <button class="btn btn-primary btn-dark boton-carrito" type="button" data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
@@ -36,6 +38,27 @@
       <!-- LOGO LOTUS -->
       <div class="center_image" data-aos="fade-down" data-aos-duration="1000">  
       <a href="../index.html"><img src="../multimedia/lotuswhite.png" alt="foto_logo" class="top_imagen"></a> 
+      </div>
+
+    <!-- FILTERS -->
+
+    <div class="wrapper">
+      <div id="search-container">
+        <input
+          type="search"
+          id="search-input"
+          placeholder="Busca el nombre de tu producto..."
+        />
+        <button id="search">Buscar</button>
+      </div>
+      <div id="buttons">
+        <button class="button-value" onclick="filterProduct('all')">all</button>
+        <button class="button-value" onclick="filterProduct('grappling')">
+          grappling
+        </button>
+        <button class="button-value" onclick="filterProduct('striking')">
+          striking
+        </button>
       </div>
 
       <!-- CANVAS -->
@@ -70,11 +93,8 @@
         <p class="vacio"></p>
         <button type="button" class="btn btn-dark" id="myBtn2">CONFIRMAR</button>
     </div>
-
-</div>
+   </div>
    
-
-
 
     </main>
 

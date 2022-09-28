@@ -24,7 +24,6 @@ a{
 }
 
 .center_image{
-  /* text-align: center;  */
   margin-top: -50px;
   display: flex;
   justify-content: center;
@@ -283,7 +282,7 @@ body {
 }
 
 
-/* MAIN */
+/* MAIN INDEX*/
 
 .row {
   display: flex;
@@ -692,17 +691,10 @@ button:hover {
   margin-top: 30px;
 }
 
-/* CARRITO */
 
 
 
 
-
-
-.offcanvas {
-  background: rgb(255,255,255);
-  background: linear-gradient(0deg, rgba(255,255,255,0.7231267507002801) 0%, rgba(79,79,79,1) 0%, rgba(0,0,0,1) 100%);
-}
 
 
 /* SIMULACION COMPRA */
@@ -723,7 +715,6 @@ label {
 }
 
 /* LOGO CARRITO */
-
 
 
 .boton-carrito {
@@ -789,7 +780,10 @@ label {
 }
 
 
-
+.offcanvas {
+  background: rgb(255,255,255);
+  background: linear-gradient(0deg, rgba(255,255,255,0.7231267507002801) 0%, rgba(79,79,79,1) 0%, rgba(0,0,0,1) 100%);
+}
 
 
 /* VENTANA POP UP */
@@ -1047,6 +1041,65 @@ label {
     left: 14px;
     top: 45px
   }
+}
+
+
+/* FILTROS */
+
+.wrapper {
+  width: 95%;
+  margin: 0 auto;
+  text-align: center;
+}
+#search-container {
+  margin: 1em 0;
+}
+#search-container input {
+  background-color: transparent;
+  width: 40%;
+  border-bottom: 2px solid #ffffff;
+  padding: 1em 0.3em;
+  color: #ddd;
+}
+#search-container input:focus {
+  border-bottom-color: #ffffff;
+}
+#search-container button {
+  padding: 1em 2em;
+  margin-left: 1em;
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 5px;
+  margin-top: 0.5em;
+  font-weight: 1000;
+}
+.button-value {
+  border: 2px solid #ffffff;
+  padding: 1em 2.2em;
+  border-radius: 3em;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: 1000;
+}
+.active {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.card {
+  background-color: #ffffff;
+  max-width: 18em;
+  margin-top: 1em;
+  padding: 1em;
+  border-radius: 5px;
+  box-shadow: 1em 2em 2.5em rgba(1, 2, 68, 0.08);
+}
+.image-container {
+  text-align: center;
+}
+
+.hide {
+  display: none;
 }
 
 

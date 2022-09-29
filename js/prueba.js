@@ -64,20 +64,29 @@ let productos = [
 
 
 const crearCards = () => {
-    let contenedor = document.getElementById("container")
-    productos.forEach((producto, indice) => {
-        let card = document.createElement("div")
-        card.classList.add("col-xl-3", "col-lg-3", "col-md-6", "col-sm-6", "hide",`${producto.deporte}`, "hide", "products")
-        card.innerHTML = `<div class="glasses_box">
+
+  let contenedor = document.getElementById("container")
+
+  productos.forEach((producto, indice) => {
+
+    let card = document.createElement("div")
+
+    card.classList.add("col-xl-3", "col-lg-3", "col-md-6", "col-sm-6", "hide", `${producto.deporte}`, "products")
+
+    card.innerHTML = `<div class="glasses_box">
         <figure><img src="${producto.imagen}" alt="esta es una foto de ${producto.nombre}"/></figure>
         <h3><span class="blu">$</span>${producto.precio}</h3>
         <p class="product-name">${producto.nombre}</p>
         <button type="button" class="btn btn-outline-secondary boton-comprar" id="asd" onClick = "agregarAlCarrito (${indice})">COMPRAR</button>
      </div>`
 
-        contenedor.appendChild(card)
-    })
+    contenedor.appendChild(card)
+    
+    producto.card = card;
+
+  })
 }
+
 
 crearCards();
 
@@ -182,6 +191,7 @@ function finalizarCompra () {
 modal.style.display = "block";
 
 
+
 const btn2 = document.querySelector("#myBtn2")
 
 btn2.onclick = function () {
@@ -257,9 +267,7 @@ span.onclick = function() {
   }
 
 
-
-
-  //Cuando hago click en buscar...
+/*   //Cuando hago click en buscar...
   document.getElementById("search").addEventListener("click", () => {
     //Traigo elementos del html
     let searchInput = document.getElementById("search-input").value;
@@ -276,7 +284,7 @@ span.onclick = function() {
         cards[index].classList.add("hide");
       }
     });
-  });
+  }); */
 
 
   window.onload = () => {
@@ -284,3 +292,20 @@ span.onclick = function() {
   };
 
 
+//BUSQUEDA EN TIEMPO REAL...
+
+const searchInput = document.getElementById("search-input")
+const card = document.querySelectorAll(".products")
+
+searchInput.addEventListener("input", e => {
+  const value = e.target.value.toLowerCase()
+
+  productos.forEach(producto => {
+    const isVisible =
+      producto.nombre.toLowerCase().includes(value) ||
+      producto.deporte.toLowerCase().includes(value)
+
+    producto.card.classList.toggle("hide", !isVisible)
+
+  })
+})

@@ -1,66 +1,5 @@
-let productos = [
-  {
-      id: 1,
-      nombre: "KIMONO VENUM",
-      precio: 20000,
-      imagen: "../multimedia/kimono.png",
-      deporte: "grappling",
-  },
-  {
-      id: 2,
-      nombre: "RUSHGUARD",
-      precio: 15000,
-      imagen: "../multimedia/rushguard.png",
-      deporte: "grappling",
-  },
-  {
-      id: 3,
-      nombre: "GUANTES MMA",
-      precio: 8000,
-      imagen: "../multimedia/guantesmma.png",
-      deporte: "striking",
-  },
-  {
-      id: 4,
-      nombre: "GUANTES BOXEO",
-      precio: 10000,
-      imagen: "../multimedia/guantesboxeo.png",
-      deporte: "striking",
-  },
-  {
-      id: 5,
-      nombre: "BOLSA DE BOXEO",
-      precio: 13000,
-      imagen: "../multimedia/bolsaboxeo.png",
-      deporte: "striking",
-  },
-  {
-      id: 6,
-      nombre: "PROTECTOR BUCAL",
-      precio: 4000,
-      imagen: "../multimedia/protectorbucal.png",
-      deporte: "striking",
-  },
-  {
-      id: 7,
-      nombre: "TIBIALES MMA",
-      precio: 6000,
-      imagen: "../multimedia/tibiales.png",
-      deporte: "striking",
-  },
-  {
-      id: 8,
-      nombre: "CASCO SPARRING",
-      precio: 7000,
-      imagen: "../multimedia/casco.png",
-      deporte: "striking",
-  },
-  ];
-  
 
-
-//CREO CARDS DE TIENDA.HTML y CONSUMO stock.json
-
+//CREO CARDS DE TIENDA.HTML
 const traigoJson = async()=> {
   const respuesta = await fetch ('../stock.json')
   const data = await respuesta.json()
@@ -68,6 +7,49 @@ const traigoJson = async()=> {
   let contenedor = document.getElementById("container")
 
   data.forEach((producto, indice) => {
+
+  let card = document.createElement("div")
+
+  card.classList.add("col-xl-3", "col-lg-3", "col-md-6", "col-sm-6", "hide", `${producto.deporte}`, "products")
+  card.innerHTML = `<div class="glasses_box">
+      <figure><img src="${producto.imagen}" alt="esta es una foto de ${producto.nombre}"/></figure>
+      <h3><span class="blu">$</span>${producto.precio}</h3>
+      <p class="product-name">${producto.nombre}</p>
+      <button type="button" class="btn btn-outline-secondary boton-comprar" id="asd" onClick = "agregarAlCarrito (${indice})">COMPRAR</button>
+   </div>`
+  contenedor.appendChild(card)
+  
+  producto.card = card;
+})
+
+//BUSQUEDA EN TIEMPO REAL
+const searchInput = document.getElementById("search-input")
+const card = document.querySelectorAll(".products")
+
+searchInput.addEventListener("input", e => {
+  const value = e.target.value.toLowerCase()
+
+  data.forEach(producto => {
+    const isVisible =
+      producto.nombre.toLowerCase().includes(value) ||
+      producto.deporte.toLowerCase().includes(value)
+
+    producto.card.classList.toggle("hide", !isVisible)
+
+  })
+})
+
+}
+
+traigoJson()
+
+
+
+/* const crearCards = () => {
+
+  let contenedor = document.getElementById("container")
+
+  productos.forEach((producto, indice) => {
 
     let card = document.createElement("div")
 
@@ -85,10 +67,10 @@ const traigoJson = async()=> {
     producto.card = card;
 
   })
-
 }
 
-traigoJson()
+
+crearCards(); */
 
 
 //CREO CARRITO 
@@ -98,12 +80,15 @@ let modalCarrito = document.getElementById("cart")
 let contadorCarrito = 0;
 
 
-const agregarAlCarrito = (indice) => {
+const agregarAlCarrito = async(indice)=>  {
+  const respuesta = await fetch ('../stock.json')
+  const data = await respuesta.json()
+
     const indiceEncontradoCarrito = cart.findIndex((elemento) => {
-        return elemento.id === productos[indice].id
+        return elemento.id === data[indice].id
     })
     if (indiceEncontradoCarrito === -1) {
-        const productoAgregar = productos[indice]
+        const productoAgregar = data[indice]
         productoAgregar.cantidad = 1
         cart.push(productoAgregar)
         dibujarCarrito()
@@ -112,8 +97,8 @@ const agregarAlCarrito = (indice) => {
         dibujarCarrito()
     }
 
-    contadorCarrito++ 
-    
+    contadorCarrito++ // operador avanzado
+
     Toastify({
         text: `Producto agregado al carrito.`,
         duration: 1500,
@@ -147,7 +132,6 @@ const dibujarCarrito = () => {
             `;
             modalCarrito.appendChild(carritoContainer);
 
-            /* console.log(producto.cantidad) */
         })
         
         let initialTotal = 0;
@@ -174,8 +158,10 @@ const removeProduct = (indice) => {
     contadorCarrito--
 }
 
-
-
+function vaciarCarrito (indice) {
+  cart.splice (indice, 100000)
+  dibujarCarrito()
+}
 
 
 //DESAFIO
@@ -188,9 +174,11 @@ const span = document.getElementsByClassName("close")[0];
 
 
 function finalizarCompra () {
+
 modal.style.display = "block";
+vaciarCarrito() 
 
-
+document.getElementById("button-close").click()
 
 const btn2 = document.querySelector("#myBtn2")
 
@@ -273,22 +261,8 @@ span.onclick = function() {
   };
 
 
-//Busqueda en tiempo real
 
-const searchInput = document.getElementById("search-input")
-const card = document.querySelectorAll(".products")
 
-searchInput.addEventListener("input", e => {
-  const value = e.target.value.toLowerCase()
 
-  productos.forEach(producto => {
-    const isVisible =
-      producto.nombre.toLowerCase().includes(value) ||
-      producto.deporte.toLowerCase().includes(value)
 
-    producto.card.classList.toggle("hide", !isVisible)
 
-  })
-})
-
-//Mayor precio y menor precio.

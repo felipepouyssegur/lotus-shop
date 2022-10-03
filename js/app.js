@@ -1,5 +1,65 @@
+let productos = [
+  {
+      id: 1,
+      nombre: "KIMONO VENUM",
+      precio: 20000,
+      imagen: "../multimedia/kimono.png",
+      deporte: "grappling",
+  },
+  {
+      id: 2,
+      nombre: "RUSHGUARD",
+      precio: 15000,
+      imagen: "../multimedia/rushguard.png",
+      deporte: "grappling",
+  },
+  {
+      id: 3,
+      nombre: "GUANTES MMA",
+      precio: 8000,
+      imagen: "../multimedia/guantesmma.png",
+      deporte: "striking",
+  },
+  {
+      id: 4,
+      nombre: "GUANTES BOXEO",
+      precio: 10000,
+      imagen: "../multimedia/guantesboxeo.png",
+      deporte: "striking",
+  },
+  {
+      id: 5,
+      nombre: "BOLSA DE BOXEO",
+      precio: 13000,
+      imagen: "../multimedia/bolsaboxeo.png",
+      deporte: "striking",
+  },
+  {
+      id: 6,
+      nombre: "PROTECTOR BUCAL",
+      precio: 4000,
+      imagen: "../multimedia/protectorbucal.png",
+      deporte: "striking",
+  },
+  {
+      id: 7,
+      nombre: "TIBIALES MMA",
+      precio: 6000,
+      imagen: "../multimedia/tibiales.png",
+      deporte: "striking",
+  },
+  {
+      id: 8,
+      nombre: "CASCO SPARRING",
+      precio: 7000,
+      imagen: "../multimedia/casco.png",
+      deporte: "striking",
+  },
+  ];
+  
 
-//CREO CARDS DE TIENDA.HTML
+
+//CREO CARDS DE TIENDA.HTML y CONSUMO stock.json
 
 const traigoJson = async()=> {
   const respuesta = await fetch ('../stock.json')
@@ -52,8 +112,8 @@ const agregarAlCarrito = (indice) => {
         dibujarCarrito()
     }
 
-    contadorCarrito++ // operador avanzado
-
+    contadorCarrito++ 
+    
     Toastify({
         text: `Producto agregado al carrito.`,
         duration: 1500,

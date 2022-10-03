@@ -1,73 +1,13 @@
-// MIS PRODUCTOS (Array de objetos)
-
-let productos = [
-{
-    id: 1,
-    nombre: "KIMONO VENUM",
-    precio: 20000,
-    imagen: "../multimedia/kimono.png",
-    deporte: "grappling",
-},
-{
-    id: 2,
-    nombre: "RUSHGUARD",
-    precio: 15000,
-    imagen: "../multimedia/rushguard.png",
-    deporte: "grappling",
-},
-{
-    id: 3,
-    nombre: "GUANTES MMA",
-    precio: 8000,
-    imagen: "../multimedia/guantesmma.png",
-    deporte: "striking",
-},
-{
-    id: 4,
-    nombre: "GUANTES BOXEO",
-    precio: 10000,
-    imagen: "../multimedia/guantesboxeo.png",
-    deporte: "striking",
-},
-{
-    id: 5,
-    nombre: "BOLSA DE BOXEO",
-    precio: 13000,
-    imagen: "../multimedia/bolsaboxeo.png",
-    deporte: "striking",
-},
-{
-    id: 6,
-    nombre: "PROTECTOR BUCAL",
-    precio: 4000,
-    imagen: "../multimedia/protectorbucal.png",
-    deporte: "striking",
-},
-{
-    id: 7,
-    nombre: "TIBIALES MMA",
-    precio: 6000,
-    imagen: "../multimedia/tibiales.png",
-    deporte: "striking",
-},
-{
-    id: 8,
-    nombre: "CASCO SPARRING",
-    precio: 7000,
-    imagen: "../multimedia/casco.png",
-    deporte: "striking",
-},
-];
-
 
 //CREO CARDS DE TIENDA.HTML
 
-
-const crearCards = () => {
+const traigoJson = async()=> {
+  const respuesta = await fetch ('../stock.json')
+  const data = await respuesta.json()
 
   let contenedor = document.getElementById("container")
 
-  productos.forEach((producto, indice) => {
+  data.forEach((producto, indice) => {
 
     let card = document.createElement("div")
 
@@ -85,10 +25,10 @@ const crearCards = () => {
     producto.card = card;
 
   })
+
 }
 
-
-crearCards();
+traigoJson()
 
 
 //CREO CARRITO 
@@ -147,7 +87,7 @@ const dibujarCarrito = () => {
             `;
             modalCarrito.appendChild(carritoContainer);
 
-            console.log(producto.cantidad)
+            /* console.log(producto.cantidad) */
         })
         
         let initialTotal = 0;
@@ -234,7 +174,7 @@ span.onclick = function() {
 
 //FILTROS
 
-  //PARAMETROS QUE ENVIA EL BOTON 
+  //Parametro que envia el boton
   function filterProduct(value) {
     //Traigo clases del boton
     let buttons = document.querySelectorAll(".button-value");
@@ -267,32 +207,13 @@ span.onclick = function() {
   }
 
 
-/*   //Cuando hago click en buscar...
-  document.getElementById("search").addEventListener("click", () => {
-    //Traigo elementos del html
-    let searchInput = document.getElementById("search-input").value;
-    let elements = document.querySelectorAll(".product-name");
-    let cards = document.querySelectorAll(".products");
-    //Loopeo sobre los elementos
-    elements.forEach((element, index) => {
-      //Checkeo si el texto incluye el valor ingresado en la busqueda.
-      if (element.innerText.includes(searchInput.toUpperCase())) {
-        //Muestro card que lo contenga
-        cards[index].classList.remove("hide");
-      } else {
-        //Escondo cards que no lo contengan
-        cards[index].classList.add("hide");
-      }
-    });
-  }); */
-
-
+//Muestro todos los productos cuando carga la pagina.
   window.onload = () => {
     filterProduct("all");
   };
 
 
-//BUSQUEDA EN TIEMPO REAL...
+//Busqueda en tiempo real
 
 const searchInput = document.getElementById("search-input")
 const card = document.querySelectorAll(".products")
@@ -309,3 +230,5 @@ searchInput.addEventListener("input", e => {
 
   })
 })
+
+//Mayor precio y menor precio.

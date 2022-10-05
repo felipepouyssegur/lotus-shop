@@ -1,3 +1,8 @@
+//Muestro todos los productos cuando carga la pagina.
+window.onload = () => {
+  filterProduct("all");
+};
+
 
 //CREO CARDS DE TIENDA.HTML
 const traigoJson = async()=> {
@@ -17,10 +22,16 @@ const traigoJson = async()=> {
       <p class="product-name">${producto.nombre}</p>
       <button type="button" class="btn btn-outline-secondary boton-comprar" id="asd" onClick = "agregarAlCarrito (${indice})">COMPRAR</button>
    </div>`
+
+  
+
   contenedor.appendChild(card)
   
   producto.card = card;
 })
+
+
+
 
 //BUSQUEDA EN TIEMPO REAL
 const searchInput = document.getElementById("search-input")
@@ -43,34 +54,6 @@ searchInput.addEventListener("input", e => {
 
 traigoJson()
 
-
-
-/* const crearCards = () => {
-
-  let contenedor = document.getElementById("container")
-
-  productos.forEach((producto, indice) => {
-
-    let card = document.createElement("div")
-
-    card.classList.add("col-xl-3", "col-lg-3", "col-md-6", "col-sm-6", "hide", `${producto.deporte}`, "products")
-
-    card.innerHTML = `<div class="glasses_box">
-        <figure><img src="${producto.imagen}" alt="esta es una foto de ${producto.nombre}"/></figure>
-        <h3><span class="blu">$</span>${producto.precio}</h3>
-        <p class="product-name">${producto.nombre}</p>
-        <button type="button" class="btn btn-outline-secondary boton-comprar" id="asd" onClick = "agregarAlCarrito (${indice})">COMPRAR</button>
-     </div>`
-
-    contenedor.appendChild(card)
-    
-    producto.card = card;
-
-  })
-}
-
-
-crearCards(); */
 
 
 //CREO CARRITO 
@@ -97,7 +80,7 @@ const agregarAlCarrito = async(indice)=>  {
         dibujarCarrito()
     }
 
-    contadorCarrito++ // operador avanzado
+    contadorCarrito++ 
 
     Toastify({
         text: `Producto agregado al carrito.`,
@@ -109,7 +92,7 @@ const agregarAlCarrito = async(indice)=>  {
 };
 
 
-
+//Muestro items seleccionados en el canvas
 
 const dibujarCarrito = () => {
     modalCarrito.className = "cart";
@@ -129,6 +112,7 @@ const dibujarCarrito = () => {
                 producto.precio * producto.cantidad
             }</div>
             <button class="btn btn-dark" id="remove-product" onClick="removeProduct(${indice})">Eliminar producto</button>
+            
             `;
             modalCarrito.appendChild(carritoContainer);
 
@@ -141,7 +125,7 @@ const dibujarCarrito = () => {
         const totalContainer = document.createElement("div")
         totalContainer.className = "total-carrito";
         totalContainer.innerHTML = `<div class = "total"> TOTAL $ ${grandTotal} </div>
-        <button class = "btn btn-dark finalizar" id="finalizar" onClick = "finalizarCompra()"> FINALIZAR COMPRA </button>`
+        <button class = "btn btn-dark finalizar" id="finalizar" onClick = "finalizarCompra()"><a href="../paginas/finalizar-compra.html">FINALIZAR COMPRA</a></button>`
         modalCarrito.appendChild(totalContainer)
 
         localStorage.setItem("productos", JSON.stringify(cart)) 
@@ -151,12 +135,16 @@ const dibujarCarrito = () => {
     }         
 }
 
+//Eliminar producto.
+
 const removeProduct = (indice) => {
     cart.splice(indice, 1);
     dibujarCarrito();
 
     contadorCarrito--
 }
+
+/* Vaciar carrito */
 
 function vaciarCarrito (indice) {
   cart.splice (indice, 100000)
@@ -167,43 +155,14 @@ function vaciarCarrito (indice) {
 //DESAFIO
 
 
-const modal = document.getElementById("myModal");
-
 
 const span = document.getElementsByClassName("close")[0];
 
 
 function finalizarCompra () {
-
-modal.style.display = "block";
 vaciarCarrito() 
-
 document.getElementById("button-close").click()
-
-const btn2 = document.querySelector("#myBtn2")
-
-btn2.onclick = function () {
-modal.style.display = "none"
-let edadUsuario = document.querySelector(".edadUsuario").value
-edadUsuario >= 18 ?      
-
-Toastify({
-    text: `Felicitaciones, su compra fue realizada con exito`,
-    duration: 2500,
-    style: {
-        background: "linear-gradient(86deg, rgba(255,255,255,0.7231267507002801) 0%, rgba(0,255,11,1) 0%, rgba(198,255,209,1) 0%, rgba(51,249,0,1) 100%)",
-      },
-    }).showToast()  
-    
-    
-    :Toastify({
-        text: `¡ATENCION! Debes ser mayor de edad para realizar la compra.`,
-        duration: 2500,
-        style: {
-            background: "linear-gradient(86deg, rgba(255,255,255,0.7231267507002801) 0%, rgba(0,255,11,1) 0%, rgba(255,0,0,1) 0%, rgba(255,140,140,1) 100%)",
-          },
-        }).showToast();
-} }
+}
  
 
 // SI EL USUARIO TOCA LA X SE CIERRA
@@ -255,14 +214,15 @@ span.onclick = function() {
   }
 
 
-//Muestro todos los productos cuando carga la pagina.
-  window.onload = () => {
-    filterProduct("all");
-  };
 
 
 
+/* LOADER */
 
+let loader = document.querySelector("#preloader")
 
+window.addEventListener("load", function() { 
+  loader.style.display = "none"
+})
 
 

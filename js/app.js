@@ -3,6 +3,10 @@ window.onload = () => {
   filterProduct("all");
 };
 
+window.onload=function(){
+  document.getElementById("boton-all").click();
+};
+
 
 //CREO CARDS DE TIENDA.HTML
 const traigoJson = async()=> {
@@ -165,6 +169,9 @@ document.getElementById("button-close").click()
 }
  
 
+
+
+
 // SI EL USUARIO TOCA LA X SE CIERRA
 span.onclick = function() {
     modal.style.display = "none";
@@ -180,6 +187,10 @@ span.onclick = function() {
   
 
 //FILTROS
+
+
+
+
 
   //Parametro que envia el boton
   function filterProduct(value) {

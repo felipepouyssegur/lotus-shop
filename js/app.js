@@ -3,7 +3,7 @@ window.onload = () => {
   filterProduct("all");
 };
 
-window.onload=function(){
+window.onload = () => {
   document.getElementById("boton-all").click();
 };
 
@@ -161,30 +161,14 @@ function vaciarCarrito (indice) {
 
 
 const span = document.getElementsByClassName("close")[0];
-
+const modal =
 
 function finalizarCompra () {
 vaciarCarrito() 
 document.getElementById("button-close").click()
 }
- 
 
 
-
-
-// SI EL USUARIO TOCA LA X SE CIERRA
-span.onclick = function() {
-    modal.style.display = "none";
-  }
-  
-//SI EL USUSARIO TOCA AFUERA SE CIERRA
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
-  
-  
 
 //FILTROS
 

@@ -126,7 +126,7 @@ const dibujarCarrito = () => {
         const totalContainer = document.createElement("div")
         totalContainer.className = "total-carrito";
         totalContainer.innerHTML = `<div class = "total"> TOTAL $ ${grandTotal} </div>
-        <button class = "btn btn-dark finalizar" id="finalizar" onClick = "finalizarCompra()"><a href="../paginas/finalizar-compra.html">FINALIZAR COMPRA</a></button>`
+        <button class = "btn btn-dark finalizar" id="finalizar"><a href="./paginas/finalizar-compra.html">FINALIZAR COMPRA</a></button>`
         modalCarrito.appendChild(totalContainer)
 
         localStorage.setItem("productos", JSON.stringify(cart))
@@ -135,12 +135,6 @@ const dibujarCarrito = () => {
         modalCarrito.classList.remove("cart")
     }         
 }
-
-var val = localStorage.getItem('productos');
-var object = JSON.parse(val);
-console.log('name: ', object.nombre);
-
-let mostrarProductos = localStorage.getItem("productos")
 
 //Eliminar producto.
 
@@ -159,10 +153,6 @@ function vaciarCarrito (indice) {
 }
 
 
-//Configuracion modal
-
-const span = document.getElementsByClassName("close")[0];
-const modal =
 
 function finalizarCompra () {
 vaciarCarrito() 

@@ -1,42 +1,45 @@
-      (function() {
-        'use strict';
-        window.addEventListener('load', function() {
-          var forms = document.getElementsByClassName('needs-validation');
-          var validation = Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('submit', function(event) {
-              if (form.checkValidity() === false) {
-                event.preventDefault();
-                event.stopPropagation();
-              } else {
-                event.preventDefault();
-                modal.style.display = "block";
+// Validacion del formulario - Muestro primer Modal
+      
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    var forms = document.getElementsByClassName('needs-validation');
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        } else {
+          event.preventDefault();
+          modal.style.display = "block";
                 
-                const vacio = document.querySelector(".vacio")
-                const emailUsuario = document.querySelector(".email-usuario").value;
-                const nombreUsuario = document.querySelector(".nombre-usuario").value;
-                const apellidoUsuario = document.querySelector(".apellido-usuario").value;
-                const ciudadUsuario = document.querySelector(".ciudad-usuario").value;
-                const provinciaUsuario = document.querySelector(".provincia-usuario").value;
-                const postalUsuario = document.querySelector(".codigo-usuario").value;
+          const vacio = document.querySelector(".vacio")
+          const emailUsuario = document.querySelector(".email-usuario").value;
+          const nombreUsuario = document.querySelector(".nombre-usuario").value;
+          const apellidoUsuario = document.querySelector(".apellido-usuario").value;
+          const ciudadUsuario = document.querySelector(".ciudad-usuario").value;
+          const provinciaUsuario = document.querySelector(".provincia-usuario").value;
+          const postalUsuario = document.querySelector(".codigo-usuario").value;
               
               
-                vacio.innerText = `E-mail: ${emailUsuario}
-                Nombre: ${nombreUsuario}
-                Apellido: ${apellidoUsuario}
-                Ciudad: ${ciudadUsuario}
-                Provincia: ${provinciaUsuario}
-                Codigo Postal: ${postalUsuario}`
+          vacio.innerText = `E-mail: ${emailUsuario}
+          Nombre: ${nombreUsuario}
+          Apellido: ${apellidoUsuario}
+          Ciudad: ${ciudadUsuario}
+          Provincia: ${provinciaUsuario}
+          Codigo Postal: ${postalUsuario}`
               
                 
         
-              }
-              form.classList.add('was-validated');
-            }, false);
-          });
-        }, false);
-      })();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
 
 
+// Defino primer modal
 
 const modal = document.getElementById("myModal");
 
@@ -49,12 +52,12 @@ const span = document.getElementsByClassName("close")[0];
 
 
 
-// SI EL USUARIO TOCA LA X SE CIERRA
+// Si el usuario toca la X se cierra.
 span.onclick = function() {
   modal.style.display = "none";
 }
 
-//SI EL USUSARIO TOCA AFUERA SE CIERRA
+// Si el usuario toca afuera se cierra.
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
@@ -63,13 +66,11 @@ window.onclick = function(event) {
 
 
 
-// MODAL 2
-
+// Modal 2
 
 const btn2 = document.getElementById("myBtn2")
 const modal2 = document.getElementById("myModal2");
 const span2 = document.getElementsByClassName("close2")[0];
-
 
 btn2.onclick = function () {
     modal.style.display = "none";
@@ -89,7 +90,7 @@ span2.onclick = function() {
 
 
 
-//ANIMACION - CONFIRMACION
+//Animacion - Confirmacion
 
 const btn3 = document.querySelector("#myBtn3")
 

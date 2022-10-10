@@ -3,12 +3,13 @@ window.onload = () => {
   filterProduct("all");
 };
 
+// Soluciono error no cargan los items 
 window.onload = () => {
   document.getElementById("boton-all").click();
 };
 
 
-//CREO CARDS DE TIENDA.HTML
+//Creo cards de tienda.html
 const traigoJson = async()=> {
   const respuesta = await fetch ('../stock.json')
   const data = await respuesta.json()
@@ -27,17 +28,13 @@ const traigoJson = async()=> {
       <button type="button" class="btn btn-outline-secondary boton-comprar" id="asd" onClick = "agregarAlCarrito (${indice})">COMPRAR</button>
    </div>`
 
-  
-
   contenedor.appendChild(card)
   
   producto.card = card;
 })
 
 
-
-
-//BUSQUEDA EN TIEMPO REAL
+//Busqueda en tiempo real
 const searchInput = document.getElementById("search-input")
 const card = document.querySelectorAll(".products")
 
@@ -60,7 +57,7 @@ traigoJson()
 
 
 
-//CREO CARRITO 
+//Creo carrito
 
 let cart = [];
 let modalCarrito = document.getElementById("cart")
@@ -132,12 +129,18 @@ const dibujarCarrito = () => {
         <button class = "btn btn-dark finalizar" id="finalizar" onClick = "finalizarCompra()"><a href="../paginas/finalizar-compra.html">FINALIZAR COMPRA</a></button>`
         modalCarrito.appendChild(totalContainer)
 
-        localStorage.setItem("productos", JSON.stringify(cart)) 
-        
+        localStorage.setItem("productos", JSON.stringify(cart))
+
     } else {
         modalCarrito.classList.remove("cart")
     }         
 }
+
+var val = localStorage.getItem('productos');
+var object = JSON.parse(val);
+console.log('name: ', object.nombre);
+
+let mostrarProductos = localStorage.getItem("productos")
 
 //Eliminar producto.
 
@@ -148,7 +151,7 @@ const removeProduct = (indice) => {
     contadorCarrito--
 }
 
-/* Vaciar carrito */
+//Vaciar carrito
 
 function vaciarCarrito (indice) {
   cart.splice (indice, 100000)
@@ -156,9 +159,7 @@ function vaciarCarrito (indice) {
 }
 
 
-//DESAFIO
-
-
+//Configuracion modal
 
 const span = document.getElementsByClassName("close")[0];
 const modal =
@@ -170,11 +171,7 @@ document.getElementById("button-close").click()
 
 
 
-//FILTROS
-
-
-
-
+//Filtros (botones)
 
   //Parametro que envia el boton
   function filterProduct(value) {
@@ -210,9 +207,7 @@ document.getElementById("button-close").click()
 
 
 
-
-
-/* LOADER */
+// Loader (Animacion de carga)
 
 let loader = document.querySelector("#preloader")
 

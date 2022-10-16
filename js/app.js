@@ -126,7 +126,7 @@ const dibujarCarrito = () => {
         const totalContainer = document.createElement("div")
         totalContainer.className = "total-carrito";
         totalContainer.innerHTML = `<div class = "total"> TOTAL $ ${grandTotal} </div>
-        <button class = "btn btn-dark finalizar" id="finalizar"><a href="./paginas/finalizar-compra.html">FINALIZAR COMPRA</a></button>`
+        <button class = "btn btn-dark finalizar" id="finalizar"><a href="../paginas/finalizarcompra.html">FINALIZAR COMPRA</a></button>`
         modalCarrito.appendChild(totalContainer)
 
         localStorage.setItem("productos", JSON.stringify(cart))
